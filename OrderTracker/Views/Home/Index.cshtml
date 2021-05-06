@@ -1,15 +1,3 @@
-@using OrderTracker.Models;
-
 <h1>Welcome to Pierres Order Tracker!</h1>
-@if (Model.Count == 0)
-{
-  <p>There are currently no vendors.</p>
-}
-<ul>
-  @foreach (Vendor vendor in Model)
-  {
-    <li>@vendor.Name</li>
-  }
-
-</ul>
-<a href="/vendors/new">Add a new vendor.</a>
+<a href='/vendors/new'>Add a new vendor</a>
+<a href='/vendors'>See all vendors</a>
