@@ -14,7 +14,7 @@ namespace OrderTracker.Controllers
     }
 
     [HttpGet("/vendors/new")]
-    public ActionResult CreateForm()
+    public ActionResult New()
     {
       return View();
     }
@@ -31,6 +31,13 @@ namespace OrderTracker.Controllers
     {
       Vendor.ClearAll();
       return View();
+    }
+
+    [HttpGet("/vendors/{id}")]
+    public ActionResult Show(int id)
+    {
+      Vendor foundVendor = Vendor.Find(id);
+      return View(foundVendor);
     }
   }
 }
