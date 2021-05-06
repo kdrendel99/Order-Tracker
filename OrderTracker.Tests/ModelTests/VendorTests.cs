@@ -69,5 +69,16 @@ namespace OrderTracker.Tests
       int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      string name1 = "Vendor 1";
+      string name2 = "Vendor 2";
+      Vendor newVendor1 = new Vendor(name1, "des1");
+      Vendor newVendor2 = new Vendor(name2, "des2");
+      Vendor result = new Vendor("Incorrect test vendor", "irrelevant");
+      Assert.AreEqual(newVendor2, result);
+    }
   }
 }
