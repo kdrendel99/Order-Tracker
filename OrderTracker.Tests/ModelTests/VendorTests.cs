@@ -77,7 +77,7 @@ namespace OrderTracker.Tests
       string name2 = "Vendor 2";
       Vendor newVendor1 = new Vendor(name1, "des1");
       Vendor newVendor2 = new Vendor(name2, "des2");
-      Vendor result = new Vendor("Incorrect test vendor", "irrelevant");
+      Vendor result = Vendor.Find(2);
       Assert.AreEqual(newVendor2, result);
     }
   }
