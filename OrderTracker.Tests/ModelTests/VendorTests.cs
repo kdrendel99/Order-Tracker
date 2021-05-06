@@ -66,7 +66,7 @@ namespace OrderTracker.Tests
       {
       string name = "Bob";
       Vendor newVendor = new Vendor(name,"des");
-      int result = 0;
+      int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
   }
