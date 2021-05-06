@@ -29,5 +29,16 @@ namespace OrderTracker.Tests
       string result = newVendor.Name;
       Assert.AreEqual(testName, result);     
     }
+
+    [TestMethod]
+    public void SetVendorName_SetNameString()
+    {
+      string name = "Bobs Coffee";
+      Vendor newVendor = new Vendor(name, "description");
+      string updatedName = "Marks Coffee";
+      newVendor.Name = updatedName;
+      string result = newVendor.Name;
+      Assert.AreEqual(updatedName, result);
+    }
   }
 }
