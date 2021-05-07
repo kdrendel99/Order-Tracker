@@ -6,24 +6,12 @@ namespace OrderTracker.Controllers
 {
   public class OrdersController : Controller
   {
-    [HttpGet("/orders")]
-    public ActionResult Index()
-    {
-      List<Order> allOrders = Order.GetAll();
-      return View(allOrders);
-    }
 
-    [HttpGet("/orders/new")]
-    public ActionResult New()
+    [HttpGet("/vendors/{vendorId}/orders/new")]
+    public ActionResult New(int vendorId)
     {
-      return View();
-    }
-
-    [HttpPost("/orders")]
-    public ActionResult Create(string name, string title, string description, string price, string date)
-    {
-      Order myOrder = new Order(name, title, description, price, date);
-      return RedirectToAction("Index");
+      Vendor vendor = Vendor.Find(vendorId);
+      return View(vendor);
     }
 
     [HttpPost("/orders/delete")]
@@ -33,11 +21,15 @@ namespace OrderTracker.Controllers
       return View();
     }
 
-    [HttpGet("/orders/{id}")]
-    public ActionResult Show(int id)
+    [HttpGet("/vendors/{vendorid}/orders/{orderId}")]
+    public ActionResult Show(int vendorId, int orderId)
     {
-      Order foundOrder = Order.Find(id);
-      return View(foundOrder);
+      Order order = Order.Find(orderId);
+      Vendor vendor = Vendor.Find(vendorId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("order", order);
+      model.Add("vendor", vendor);
+      return View(model);
     }
   }
 }

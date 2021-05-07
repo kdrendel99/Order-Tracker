@@ -1,7 +1,7 @@
-<h1>Vendor Details: </h1>
+<h1>Order Details: </h1>
 
-<h2>@Model.Name</h2>
-<h4>@Model.Description</h4>
+<h2>@Model["order"].Description</h2>
+<h4>Vendor: @Model["vendor"].Name</h4>
 
-<a href='/vendors/new'>Add another vendor</a>
+<a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
 <a href='/vendors'>View all vendors</a>
